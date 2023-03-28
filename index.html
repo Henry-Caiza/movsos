@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400&family=DM+Sans:wght@400;500;700&family=Montserrat:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="styles/my-slider.css">
+    <title>PeliSos</title>
+</head>
+
+<body>
+    <header id="header" class="header-container">
+        <div class="ism-slider" id="my-slider">
+            <ol>
+                <li>
+                    <img src="https://pbs.twimg.com/media/FooUp6laYAE9Ma5.jpg:large">
+                    <div class="ism-caption ism-caption-0">My slide caption text</div>
+                </li>
+                <li>
+                    <img src="https://wallpapercave.com/wp/wp11345410.jpg">
+                    <div class="ism-caption ism-caption-0">My slide caption text</div>
+                </li>
+                <li>
+                    <img src="https://i.blogs.es/5d6174/shazam-fury-of-the-gods-poster-1-featured-01/1366_2000.jpeg">
+                    <div class="ism-caption ism-caption-0">My slide caption text</div>
+                </li>
+            </ol>
+
+        </div>
+        <div class="nav-header">
+            <a class="nav-btn-series">Series</a>
+            <a class="nav-btn-peliculas">Películas</a>
+        </div>
+
+        <a href="index.html" class="btnlogo"><img class="img-logo" src="img/movsos.png" alt=""></a>
+        <div class="icons-container">
+            <a class="header-arrow inactive"></a>
+            <div class="header-play-container inactive">
+                <span>Ver Trailer</span>
+                <a id="" class="header-play"></a>
+            </div>
+            <!-- <button class="header-play inactive"></button> -->
+        </div>
+
+        <h1 class="header-title header-title--categoryView inactive">Acción</h1>
+        <p class="header-p">Que quieres ver?</p>
+        <form id="searchForm" class="header-searchForm">
+            <input type="text" placeholder="Vengadores" />
+            <button id="searchBtn"></button>
+        </form>
+    </header>
+    <main>
+        <section id="category" class="category-container">
+            <h2 class="category-title">Categorías</h2>
+            <div id="cotegories" class="categories-container">
+                <div id="movies" class="categories-movies-container">
+                    <figure></figure>
+                    <img class="movieImg" src="img/Movie11nobg 1.png" alt="">
+                    <div id="categories-content-movies" class="categories-content-movies">
+                        <p>Películas</p>
+                        <p class="totalMovies"></p>
+                    </div>
+                </div>
+                <div id="series" class="categories-series-container">
+                    <figure></figure>
+                    <img class="serieImg" src="img/flash.png" alt="">
+                    <div id="categories-content-series" class="categories-content-series">
+                        <p>Series</p>
+                        <p class="totalSeries"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="trendingPreview" class="trendingPreview-container">
+            <div class="trendingPreview-header">
+                <h2 class="trendingPreview-title">En camino</h2>
+                <button class="trendingPreview-btn">Ver más</button>
+            </div>
+            <div class="ico-izquierda">
+                <img src="./img/icons8-galón-izquierdo-50.png" alt="">
+            </div>
+            <div class="ico-derecha">
+                <img src="./img/icons8-galón-derecho-50.png" alt="">
+            </div>
+            <article class="trendingPreview-movieList">
+
+
+            </article>
+        </section>
+        <section id="topPreview" class="topPreview-container inactive">
+            <div class="topPreview-header">
+                <h2 class="topPreview-title">Más valoradas</h2>
+
+            </div>
+
+            <article class="topPreview-movieList">
+            </article>
+        </section>
+
+        <section id="genresPreview" class="genresPreview-container">
+            <h2 class="genresPreview-title">Explora por género</h2>
+            <div class="genresPreview-content">
+
+            </div>
+        </section>
+
+        <section id="genericList" class="genericList-container inactive">
+            <div class="movie-container">
+            </div>
+        </section>
+
+        <section id="movieDetail" class="movieDetail-container inactive">
+            <h1 class="movieDetail-title">Deadpool</h1>
+            <span class="movieDetail-score">7.6</span>
+            <p class="movieDetail-description">
+                Wisecracking mercenary Deadpool battles the evil and powerful Cable and other bad guys to save a boy's
+                life.
+            </p>
+
+
+            <div class="categories-list">
+
+            </div>
+
+            <article class="relatedMovies-container">
+                <h2 class="relatedMovies-title">Titulos similares</h2>
+
+                <div class="relatedMovies-scrollContainer">
+                    <div class="movie-container">
+                        <img src="" class="movie-img" alt="Nombre de la película" />
+                    </div>
+
+                    <div class="movie-container">
+                        <img src="" class="movie-img" alt="Nombre de la película" />
+                    </div>
+
+                    <div class="movie-container">
+                        <img src="" class="movie-img" alt="Nombre de la película" />
+                    </div>
+                </div>
+            </article>
+        </section>
+
+    </main>
+    <footer>
+        <div class="footer-header-container">
+            <span></span>
+            <div class="icon-container">
+                <a class="ico-facebook"></a>
+                <a class="ico-youtube"></a>
+                <a class="ico-twitter"></a>
+                <a class="ico-linkedin"></a>
+                <a class="ico-instagram"></a>
+            </div>
+            <span></span>
+        </div>
+        <div class="footer-body-container">
+            <img class="img-logo-footer" src="img/movsos2.png" alt="">
+            <p>Copyright @ 2023 - Henry Caiza</p>
+        </div>
+
+    </footer>
+    <dialog id="modal" class="inactive">
+        <iframe src="" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+        <div>
+            <button class="close"></button>
+        </div>
+
+    </dialog>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="src/slider.js"></script>
+    <script src="src/nodes.js"></script>
+    <script src="src/main.js"></script>
+    <script src="src/navigation.js"></script>
+
+</body>
+
+</html>
