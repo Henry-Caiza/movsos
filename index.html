@@ -12,7 +12,8 @@
         rel="stylesheet">
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="styles/my-slider.css">
-    <title>PeliSos</title>
+    <link rel="shortcut icon" href="img/o.png">
+    <title>MovSos</title>
 </head>
 
 <body>
@@ -21,22 +22,32 @@
             <ol>
                 <li>
                     <img src="https://pbs.twimg.com/media/FooUp6laYAE9Ma5.jpg:large">
-                    <div class="ism-caption ism-caption-0">My slide caption text</div>
+                    <!-- <div class="ism-caption ism-caption-0">My slide caption text</div> -->
                 </li>
                 <li>
                     <img src="https://wallpapercave.com/wp/wp11345410.jpg">
-                    <div class="ism-caption ism-caption-0">My slide caption text</div>
+                    <!-- <div class="ism-caption ism-caption-0">My slide caption text</div> -->
                 </li>
                 <li>
                     <img src="https://i.blogs.es/5d6174/shazam-fury-of-the-gods-poster-1-featured-01/1366_2000.jpeg">
-                    <div class="ism-caption ism-caption-0">My slide caption text</div>
+                    <!-- <div class="ism-caption ism-caption-0">My slide caption text</div> -->
                 </li>
             </ol>
 
         </div>
         <div class="nav-header">
-            <a class="nav-btn-series">Series</a>
-            <a class="nav-btn-peliculas">Películas</a>
+            <div class="nav-header-btn">
+                <a class="nav-btn-series">Series</a>
+                <a class="nav-btn-peliculas">Películas</a>
+                <a href="#genresPreview" class="nav-btn-favoritos">Géneros</a>
+                <a href="#favorites" class="nav-btn-generos">Favoritos</a>
+            </div>
+            <select class="ul-idiomas" name="language" id="la">
+                <option value="es">Español</option>
+                <option value="en">Inglés</option>
+                <option value="pt-BR">Portugués Br</option>
+                <option value="fr">Frances</option>
+            </select>
         </div>
 
         <a href="index.html" class="btnlogo"><img class="img-logo" src="img/movsos.png" alt=""></a>
@@ -50,7 +61,7 @@
         </div>
 
         <h1 class="header-title header-title--categoryView inactive">Acción</h1>
-        <p class="header-p">Que quieres ver?</p>
+        <p class="header-p">Qué quieres ver?</p>
         <form id="searchForm" class="header-searchForm">
             <input type="text" placeholder="Vengadores" />
             <button id="searchBtn"></button>
@@ -65,7 +76,7 @@
                     <img class="movieImg" src="img/Movie11nobg 1.png" alt="">
                     <div id="categories-content-movies" class="categories-content-movies">
                         <p>Películas</p>
-                        <p class="totalMovies"></p>
+                        <p class="totalMovies">1078</p>
                     </div>
                 </div>
                 <div id="series" class="categories-series-container">
@@ -73,7 +84,7 @@
                     <img class="serieImg" src="img/flash.png" alt="">
                     <div id="categories-content-series" class="categories-content-series">
                         <p>Series</p>
-                        <p class="totalSeries"></p>
+                        <p class="totalSeries">756</p>
                     </div>
                 </div>
             </div>
@@ -90,7 +101,12 @@
                 <img src="./img/icons8-galón-derecho-50.png" alt="">
             </div>
             <article class="trendingPreview-movieList">
-
+                <div class="movie-container movie-container--loading"></div>
+                <div class="movie-container movie-container--loading"></div>
+                <div class="movie-container movie-container--loading"></div>
+                <div class="movie-container movie-container--loading"></div>
+                <div class="movie-container movie-container--loading"></div>
+                <div class="movie-container movie-container--loading"></div>
 
             </article>
         </section>
@@ -101,19 +117,41 @@
             </div>
 
             <article class="topPreview-movieList">
+                <div class="movie-container movie-container--loading"></div>
+                <div class="movie-container movie-container--loading"></div>
+                <div class="movie-container movie-container--loading"></div>
+                <div class="movie-container movie-container--loading"></div>
+                <div class="movie-container movie-container--loading"></div>
+                <div class="movie-container movie-container--loading"></div>
+                <div class="movie-container movie-container--loading"></div>
+                <div class="movie-container movie-container--loading"></div>
             </article>
         </section>
 
-        <section id="genresPreview" class="genresPreview-container">
+        <section name="genresPreview" id="genresPreview" class="genresPreview-container">
             <h2 class="genresPreview-title">Explora por género</h2>
             <div class="genresPreview-content">
-
+                <div class="genresPreview-list genresPreview-list--loading"></div>
+                <div class="genresPreview-list genresPreview-list--loading"></div>
+                <div class="genresPreview-list genresPreview-list--loading"></div>
+                <div class="genresPreview-list genresPreview-list--loading"></div>
+                <div class="genresPreview-list genresPreview-list--loading"></div>
+                <div class="genresPreview-list genresPreview-list--loading"></div>
+                <div class="genresPreview-list genresPreview-list--loading"></div>
             </div>
         </section>
 
         <section id="genericList" class="genericList-container inactive">
-            <div class="movie-container">
-            </div>
+            <div class="movie-container movie-container--loading"></div>
+            <div class="movie-container movie-container--loading"></div>
+            <div class="movie-container movie-container--loading"></div>
+            <div class="movie-container movie-container--loading"></div>
+            <div class="movie-container movie-container--loading"></div>
+            <div class="movie-container movie-container--loading"></div>
+            <div class="movie-container movie-container--loading"></div>
+            <div class="movie-container movie-container--loading"></div>
+            <div class="movie-container movie-container--loading"></div>
+            <div class="movie-container movie-container--loading"></div>
         </section>
 
         <section id="movieDetail" class="movieDetail-container inactive">
@@ -126,6 +164,8 @@
 
 
             <div class="categories-list">
+                <div class="genresPreview-list genresPreview-list--loading"></div>
+                <div class="genresPreview-list genresPreview-list--loading"></div>
 
             </div>
 
@@ -133,22 +173,45 @@
                 <h2 class="relatedMovies-title">Titulos similares</h2>
 
                 <div class="relatedMovies-scrollContainer">
-                    <div class="movie-container">
-                        <img src="" class="movie-img" alt="Nombre de la película" />
-                    </div>
+                    <div class="movie-container movie-container--loading"></div>
+                    <div class="movie-container movie-container--loading"></div>
+                    <div class="movie-container movie-container--loading"></div>
+                    <div class="movie-container movie-container--loading"></div>
 
-                    <div class="movie-container">
+                    <!-- <div class="movie-container">
                         <img src="" class="movie-img" alt="Nombre de la película" />
-                    </div>
-
-                    <div class="movie-container">
-                        <img src="" class="movie-img" alt="Nombre de la película" />
-                    </div>
+                    </div> -->
                 </div>
             </article>
         </section>
-
+        <hr name="favorites" id="favorites" class="line">
+        <section id="liked" class="liked-container">
+            <div class="liked-header">
+                <h2c= class="liked-title">Películas favoritas</h2>
+            </div>
+            <article class="liked-movieList">
+                <!-- <div class="movie-container">
+                    <img src="./img/pud.jpg" class="movie-img" alt="Nombre de la película" />
+                </div> -->
+            </article>
+        </section>
+        <section id="likedS" class="likedS-container">
+            <div class="liked-header">
+                <h2c= class="liked-title">Series favoritas</h2>
+            </div>
+            <article class="liked-serieList">
+                <!-- <div class="movie-container">
+                            <img src="./img/pud.jpg" class="movie-img" alt="Nombre de la película" />
+                        </div> -->
+            </article>
+        </section>
     </main>
+    <dialog id="modal" class="inactive">
+        <iframe class="modal-loading" src="" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+        <div>
+            <button class="close"></button>
+        </div>
+    </dialog>
     <footer>
         <div class="footer-header-container">
             <span></span>
@@ -167,13 +230,7 @@
         </div>
 
     </footer>
-    <dialog id="modal" class="inactive">
-        <iframe src="" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
-        <div>
-            <button class="close"></button>
-        </div>
 
-    </dialog>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="src/slider.js"></script>
     <script src="src/nodes.js"></script>

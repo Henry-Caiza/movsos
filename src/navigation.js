@@ -1,3 +1,13 @@
+let pageSerie = 1;
+let pageMovie = 1;
+let pageUp = 1;
+let page = 1;
+let infiniteScroll;
+
+listIdiomas.addEventListener('click', () => {
+    lang = listIdiomas.value;
+    homePage();
+})
 searchFormBtn.addEventListener('click', () => {
     //location.hash = '#search=' + searchFormInput.value;
     if (location.hash === '#series' || location.hash.startsWith('#searchS=')) {
@@ -51,13 +61,20 @@ seriesContainerBtn.addEventListener('click', () => location.hash = '#series')
 
 btnNavSeries.addEventListener('click', () => location.hash = '#series')
 btnNavPeliculas.addEventListener('click', () => location.hash = '#movies')
-
+// btnIdiomas.addEventListener('click', () => {
+//     listIdiomas.classList.toggle('inactive');
+// })
 
 window.addEventListener('DOMContentLoaded', navigator, false);
 window.addEventListener('hashchange', navigator, false);
-
+window.addEventListener('scroll', infiniteScroll, false);
 
 function navigator() {
+    if (infiniteScroll) {
+        window.removeEventListener('scroll', infiniteScroll, { passive: false });
+        infiniteScroll = undefined;
+    }
+
     location.hash.startsWith('#upComming') ? upComingPage() :
         location.hash.startsWith('#trendMovie') ? trendsPageM() :
             location.hash.startsWith('#trendSerie') ? trendsPageS() :
@@ -73,6 +90,9 @@ function navigator() {
 
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
+    if (infiniteScroll) {
+        window.addEventListener('scroll', infiniteScroll, { passive: false });
+    }
 }
 
 function homePage() {
@@ -103,14 +123,17 @@ function homePage() {
     // categoriesPreviewSection.classList.remove('inactive');
     genericSection.classList.add('inactive');
     movieDetailSection.classList.add('inactive');
+    likedSection.classList.remove('inactive');
+    likedSSection.classList.remove('inactive');
 
     titleTrend.innerHTML = 'En camino';
     headerP.innerHTML = 'Qué quieres ver?'
     getMoviesUpCommingPreview();
-    getTotalMovies();
-    getTotalSeries()
+    // getTotalMovies();
+    // getTotalSeries();
     getGenresPreview();
-
+    getLikedMovies();
+    getLikedSeries();
 }
 
 function genre() {
@@ -139,24 +162,31 @@ function genre() {
     //categoriesPreviewSection.classList.add('inactive');
     genericSection.classList.remove('inactive');
     movieDetailSection.classList.add('inactive');
+
+    likedSection.classList.add('inactive');
+    likedSSection.classList.add('inactive');
 }
 
 function genresPage() {
+    page = 1;
     genre();
     const [_, categoryData] = location.hash.split('=');
     const [categoryId, categoryName] = categoryData.split('-');
 
     headerCategoryTitle.innerHTML = categoryName;
     getMoviesByGenre(categoryId);
+    infiniteScroll = getPaginatedMovieGenreBySearch(categoryId);
 }
 
 function genresPageSerie() {
+    page = 1;
     genre();
     const [_, categoryData] = location.hash.split('=');
     const [categoryId, categoryName] = categoryData.split('-');
 
     headerCategoryTitle.innerHTML = categoryName;
     getSeriesByGenre(categoryId);
+    infiniteScroll = getPaginatedSerieGenreBySearch(categoryId);
 }
 
 function viewPageAlternate() {
@@ -183,26 +213,35 @@ function viewPageAlternate() {
     //categoriesPreviewSection.classList.add('inactive');
     genericSection.classList.remove('inactive');
     movieDetailSection.classList.add('inactive');
+    likedSection.classList.add('inactive');
+    likedSSection.classList.add('inactive');
 }
 
 function trendsPageM() {
-    console.log('Trends!!');
+    page = 1;
+    console.log('TrendsM!!');
     viewPageAlternate();
     headerCategoryTitle.innerHTML = 'Tendencias';
     getTrendingMovies();
+    infiniteScroll = getPaginatedTrendingMovies;
 }
 function trendsPageS() {
-    console.log('Trends!!');
+    page = 1;
+    console.log('TrendsS!!');
     viewPageAlternate();
     headerCategoryTitle.innerHTML = 'Tendencias';
     getTrendingSeries();
+    infiniteScroll = getPaginatedTrendingSeries;
+    // infiniteScroll = getPaginatedTrendingMovies();
 }
 
 function upComingPage() {
+    page = 1;
     console.log('UP!!');
     viewPageAlternate();
     headerCategoryTitle.innerHTML = 'En camino';
     getMoviesUpComming();
+    infiniteScroll = getPaginatedUpCommingMovies;
 }
 
 function detailPage() {
@@ -231,6 +270,9 @@ function detailPage() {
     trendingPreviewSection.classList.add('inactive');
     genericSection.classList.add('inactive');
     movieDetailSection.classList.remove('inactive');
+
+    likedSection.classList.add('inactive');
+    likedSSection.classList.add('inactive');
 }
 
 function movieDetailPage() {
@@ -273,22 +315,25 @@ function searchTitulos() {
     trendingPreviewSection.classList.add('inactive');
     genericSection.classList.remove('inactive');
     movieDetailSection.classList.add('inactive');
+    likedSection.classList.add('inactive');
+    likedSSection.classList.add('inactive');
 }
 function searchPageMovies() {
-
+    page = 1;
     searchTitulos();
     navHeader.classList.add('inactive');
     const [_, query] = location.hash.split('=');
     getMoviesBySearch(query);
+    infiniteScroll = getPaginatedMoviesBySearch(query);
 
 }
 function searchPageSeries() {
-
+    page = 1;
     searchTitulos();
     navHeader.classList.add('inactive');
     const [_, query] = location.hash.split('=');
     getSeriesBySearch(query);
-
+    infiniteScroll = getPaginatedSeriesBySearch(query);
 }
 
 
@@ -308,30 +353,37 @@ function pagesView() {
     headerPlay.classList.add('inactive');
     dialogModal.classList.add('inactive');
 
-
+    navHeader.classList.add('inactive');
     footer.classList.remove('inactive');
 
     categoryContain.classList.add('inactive');
     genresContainer.classList.remove('inactive');
 
     trendingPreviewSection.classList.remove('inactive');
-
+    slideContainer.classList.add('inactive');
     genericSection.classList.add('inactive');
     movieDetailSection.classList.add('inactive');
+
 }
 function moviesPage() {
     topPreviexList.classList.remove('inactive');
+    likedSection.classList.remove('inactive');
+    likedSSection.classList.add('inactive');
+
     pagesView();
     getTrendingMoviesPreview();
     getTopMoviesPreview();
     getGenresPreview();
-
+    getLikedMovies();
 }
 function seriesPage() {
     topPreviexList.classList.remove('inactive');
+    likedSSection.classList.remove('inactive');
+    likedSection.classList.add('inactive');
+
     pagesView();
     getTrendingSeriesPreview();
     getTopSeriesPreview();
     getGenresPreviewSeries();
-
+    getLikedSeries();
 }

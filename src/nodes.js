@@ -4,6 +4,8 @@ const trendingPreviewSection = document.querySelector('#trendingPreview');
 // const categoriesPreviewSection = document.querySelector('#categoriesPreview');
 const genericSection = document.querySelector('#genericList');
 const movieDetailSection = document.querySelector('#movieDetail');
+const likedSection = document.querySelector('#liked');
+const likedSSection = document.querySelector('#likedS');
 
 //////////////////////////////////////////////
 const genresPreviewSection = document.querySelector('#genresPreview');
@@ -24,6 +26,9 @@ const categoryContain = document.querySelector('.category-container');
 
 const dialogModal = document.querySelector('#modal');
 const slideContainer = document.querySelector('.ism-slider');
+
+const likedContainer = document.querySelector('.liked-movieList');
+const likedSContainer = document.querySelector('.liked-serieList');
 ///////////////top///////////////
 const topPreviewSection = document.querySelector('#topPreview');
 const topMoviesPreviewList = document.querySelector('.topPreview-movieList');
@@ -62,3 +67,10 @@ const footer = document.querySelector('footer');
 const btnNavPeliculas = document.querySelector('.nav-btn-peliculas')
 const btnNavSeries = document.querySelector('.nav-btn-series')
 const navHeader = document.querySelector('.nav-header')
+
+const btnIdiomas = document.querySelector('.nav-btn-idioma');
+const listIdiomas = document.querySelector('.ul-idiomas');
+const idiomaEs = document.querySelector('.lg-es')
+const idiomaEn = document.querySelector('.lg-en')
+const idiomaBr = document.querySelector('.lg-br')
+const idiomaFr = document.querySelector('.lg-fr')
