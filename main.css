@@ -1177,13 +1177,13 @@ footer {
     }
 
     .trendingPreview-title {
-        font-size: 2.8rem;
+        font-size: 2rem;
         font-weight: 700;
     }
 
     .genresPreview-title {
         margin: 20px 0 16px 0;
-        font-size: 3.2rem;
+        font-size: 2.2rem;
         font-weight: 700;
     }
 
@@ -1390,6 +1390,22 @@ footer {
 }
 
 @media (min-width: 750px) {
+    .trendingPreview-title {
+        font-size: 2.8rem;
+        font-weight: 700;
+    }
+
+    .genresPreview-title {
+        margin: 20px 0 16px 0;
+        font-size: 3.2rem;
+        font-weight: 700;
+    }
+
+    .liked-title {
+        font-size: 2.8rem;
+        font-weight: 700;
+    }
+
     .header-searchForm input {
         width: 80%;
     }
@@ -1478,9 +1494,14 @@ footer {
         margin-right: 16px;
     }
 
-    .trendingPreview-movieList,
-    .topPreview-movieList {
+    .trendingPreview-movieList {
         height: 360px;
+    }
+
+    .topPreview-movieList,
+    .liked-serieList,
+    .liked-movieList {
+        height: 260px;
     }
 
     .genericList-container .movie-container {
@@ -1698,8 +1719,7 @@ footer {
 
 
 
-    .trendingPreview-movieList,
-    .topPreview-movieList {
+    .trendingPreview-movieList {
         overflow-x: hidden;
         overscroll-behavior-x: none;
         overscroll-behavior: smooth;
@@ -1784,4 +1804,20 @@ footer {
     50% {
         opacity: 0%;
     }
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ddaff12f;
+    ;
+
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(#16CAF1, #db76ff);
+    border-radius: 10px;
 }
