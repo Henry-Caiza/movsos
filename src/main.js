@@ -638,11 +638,17 @@ async function getPaginatedUpCommingMovies() {
 function getLikedMovies() {
     const likedMovies = likedMoviesList();
     const moviesArray = Object.values(likedMovies);
+    if (moviesArray.length ==0) {
+        likedContainer.innerHTML = `Aún no tines películas agregadas a esta sección 📲`
+    }else
     createMovies(moviesArray, likedContainer, { lazyLoad: true, clean: true })
 }
 function getLikedSeries() {
     const likedSeries = likedSeriesList();
     const seriesArray = Object.values(likedSeries);
+     if (seriesArray.length ==0) {
+        likedSContainer.innerHTML = `Aún no tines series agregadas a esta sección 📲`
+    }else
     createSeries(seriesArray, likedSContainer, { lazyLoad: true, clean: true })
 }
 
