@@ -487,9 +487,18 @@ async function getMovieById(id) {
     movieDetailDescription.textContent = movie.overview;
     movieDetailScore.textContent = movie.vote_average;
     console.log(lang);
-    const movieImgUrl = 'https://image.tmdb.org/t/p/w500' + movie.poster_path;
-    headerSection.style.background = `
+    if (window.matchMedia('(max-width: 750px)').matches) {
+        const movieImgUrl = 'https://image.tmdb.org/t/p/w500' + movie.poster_path;
+        headerSection.style.background = `
     linear-gradient(180deg, rgba(0, 0, 0, 0.35) 19.27%, rgba(0, 0, 0, 0) 29.17%),url(${movieImgUrl})`;
+
+    } else {
+        const movieImgUrl = 'https://image.tmdb.org/t/p/w1280' + movie.backdrop_path;
+        headerSection.style.background = `
+    linear-gradient(180deg, rgba(0, 0, 0, 0.35) 19.27%, rgba(0, 0, 0, 0) 29.17%),url(${movieImgUrl})`;
+    }
+
+
     createGenres(movie.genres, movieDetailCategoriesList);
     getRelatedMoviesById(id);
 }
@@ -503,10 +512,16 @@ async function getSerieById(id) {
     movieDetailTitle.textContent = serie.name
     movieDetailDescription.textContent = serie.overview;
     movieDetailScore.textContent = serie.vote_average;
-
-    const serieImgUrl = 'https://image.tmdb.org/t/p/w500' + serie.poster_path;
-    headerSection.style.background = `
+    if (window.matchMedia('(max-width: 768px)').matches) {
+        const serieImgUrl = 'https://image.tmdb.org/t/p/w500' + serie.poster_path;
+        headerSection.style.background = `
     linear-gradient(180deg, rgba(0, 0, 0, 0.35) 19.27%, rgba(0, 0, 0, 0) 29.17%),url(${serieImgUrl})`;
+    } else {
+        const serieImgUrl = 'https://image.tmdb.org/t/p/w1280' + serie.backdrop_path;
+        headerSection.style.background = `
+    linear-gradient(180deg, rgba(0, 0, 0, 0.35) 19.27%, rgba(0, 0, 0, 0) 29.17%),url(${serieImgUrl})`;
+    }
+
     createGenresSerie(serie.genres, movieDetailCategoriesList);
     getRelatedSeriesById(id);
 }
@@ -638,18 +653,18 @@ async function getPaginatedUpCommingMovies() {
 function getLikedMovies() {
     const likedMovies = likedMoviesList();
     const moviesArray = Object.values(likedMovies);
-    if (moviesArray.length ==0) {
+    if (moviesArray.length == 0) {
         likedContainer.innerHTML = `Aún no tines películas agregadas a esta sección 📲`
-    }else
-    createMovies(moviesArray, likedContainer, { lazyLoad: true, clean: true })
+    } else
+        createMovies(moviesArray, likedContainer, { lazyLoad: true, clean: true })
 }
 function getLikedSeries() {
     const likedSeries = likedSeriesList();
     const seriesArray = Object.values(likedSeries);
-     if (seriesArray.length ==0) {
+    if (seriesArray.length == 0) {
         likedSContainer.innerHTML = `Aún no tines series agregadas a esta sección 📲`
-    }else
-    createSeries(seriesArray, likedSContainer, { lazyLoad: true, clean: true })
+    } else
+        createSeries(seriesArray, likedSContainer, { lazyLoad: true, clean: true })
 }
 
 //getVideo(550);
